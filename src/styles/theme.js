@@ -14,9 +14,9 @@ const theme = {
     primary: '#007bff',
   },
   spacer: '1rem',
-  linkColor: '',
+  linkColor: '#007bff', // Color.primary
   linkDecoration: 'none',
-  linkHoverColor: '',
+  linkHoverColor: '#0056b3', // Darken color.primary 15%
   linkHoverDecoration: 'underline',
   paragraphMarginBottom: '1rem',
   gridBreakpoints: {
@@ -43,7 +43,7 @@ const theme = {
   },
   lineHeightBase: 1.5,
   tableCellPadding: '.75rem',
-  tableCaptionColor: '',
+  tableCaptionColor: '#6c757d', // Color.gray600
   labelMarginBottom: '.5rem'
 }
 
