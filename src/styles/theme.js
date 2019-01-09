@@ -1,22 +1,32 @@
+export const gray = {
+  gray100: '#f8f9fa',
+  gray200: '#e9ecef',
+  gray300: '#dee2e6',
+  gray400: '#ced4da',
+  gray500: '#adb5bd',
+  gray600: '#6c757d',
+  gray700: '#495057',
+  gray800: '#343a40',
+  gray900: '#212529',
+}
+
+export const brand = {
+  primary: '#007bff'
+}
+
+export const color = {
+  ...brand,
+  ...gray,
+  white: '#fff',
+  black: '#000',
+}
+
 const theme = {
-  colors: {
-    white: '#fff',
-    gray100: '#f8f9fa',
-    gray200: '#e9ecef',
-    gray300: '#dee2e6',
-    gray400: '#ced4da',
-    gray500: '#adb5bd',
-    gray600: '#6c757d',
-    gray700: '#495057',
-    gray800: '#343a40',
-    gray900: '#212529',
-    black: '#000',
-    primary: '#007bff',
-  },
+  color,
   spacer: '1rem',
-  linkColor: '#007bff', // Color.primary
+  linkColor: color.primary,
   linkDecoration: 'none',
-  linkHoverColor: '#0056b3', // Darken color.primary 15%
+  linkHoverColor: '#0056b3', // Color.primary darken 15%
   linkHoverDecoration: 'underline',
   paragraphMarginBottom: '1rem',
   gridBreakpoints: {
@@ -43,7 +53,7 @@ const theme = {
   },
   lineHeightBase: 1.5,
   tableCellPadding: '.75rem',
-  tableCaptionColor: '#6c757d', // Color.gray600
+  tableCaptionColor: color.gray600,
   labelMarginBottom: '.5rem'
 }
 

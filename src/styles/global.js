@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: sans-serif; /* 2 */
     line-height: 1.15; /* 3 */
     -webkit-text-size-adjust: 100%; /* 4 */
-    -webkit-tap-highlight-color: rgba(${props => props.theme.colors.black}, 0); /* 5 */
+    -webkit-tap-highlight-color: rgba(${props => props.theme.color.black}, 0); /* 5 */
   }
 
   /**
@@ -56,9 +56,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${props => props.theme.fontSizeBase};
     font-weight: ${props => props.theme.fontWeight.normal};
     line-height: ${props => props.theme.lineHeightBase};
-    color: ${props => props.theme.colors.gray900};
+    color: ${props => props.theme.color.gray900};
     text-align: left; /* 3 */
-    background-color: ${props => props.theme.colors.white}; /* 2 */
+    background-color: ${props => props.theme.color.white}; /* 2 */
   }
 
   /**
@@ -195,13 +195,13 @@ const GlobalStyle = createGlobalStyle`
    */
 
   a {
-    color: ${props => props.theme.LinkColor};
-    text-decoration: ${props => props.theme.LinkDecoration};
+    color: ${props => props.theme.linkColor};
+    text-decoration: ${props => props.theme.linkDecoration};
     background-color: transparent; /* Remove the gray background on active links in IE 10. */
 
     &:hover {
-      color: ${props => props.theme.LinkHoverColor};
-      text-decoration: ${props => props.theme.LinkHoverDecoration};
+      color: ${props => props.theme.linkHoverColor};
+      text-decoration: ${props => props.theme.linkHoverDecoration};
     }
   }
 
