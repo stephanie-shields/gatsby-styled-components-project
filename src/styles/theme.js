@@ -1,3 +1,5 @@
+import { darken } from 'polished'
+
 export const gray = {
   gray100: '#f8f9fa',
   gray200: '#e9ecef',
@@ -26,7 +28,7 @@ const theme = {
   spacer: '1rem',
   linkColor: color.primary,
   linkDecoration: 'none',
-  linkHoverColor: '#0056b3', // Color.primary darken 15%
+  linkHoverColor: darken(0.15, color.primary),
   linkHoverDecoration: 'underline',
   paragraphMarginBottom: '1rem',
   gridBreakpoints: {

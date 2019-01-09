@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
+export const reboot = css`
   /**
+   * Reboot
    * Adapted from Bootstrap Reboot v4.2.1 (https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss)
-   * Adapted from Normalize v8.0.1 (https://github.com/necolas/normalize.css)
    * Normalization of HTML elements, manually forked from Normalize.css to remove
    * styles targeting irrelevant browsers while applying new styles.
    * 
@@ -480,4 +480,13 @@ const GlobalStyle = createGlobalStyle`
     display: none !important;
   }
 `
+export const fonts = css`
+  
+`
+
+const GlobalStyle = createGlobalStyle `
+  ${reboot}
+  ${fonts}
+`
+
 export default GlobalStyle
