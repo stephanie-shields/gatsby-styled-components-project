@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
-import GlobalStyle from '../../styles/global'
-import theme from '../../styles/theme'
+import GlobalStyle from '../../utilities/Global'
+import Theme from '../../utilities/Theme'
 import Header from '../Header/Header'
 
 const Layout = ({ children }) => (
@@ -19,7 +19,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={Theme}>
           <>
             <Header siteTitle={data.site.siteMetadata.title} />
             <div

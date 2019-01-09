@@ -41,7 +41,7 @@ const theme = {
   gridGutterWidth: '24px',
   fontFamily: {
     sansSerif:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+      '"Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif',
     monospace:
       'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
