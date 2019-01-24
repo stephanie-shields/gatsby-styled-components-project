@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
-import GlobalStyle from '../../utilities/Global'
+import Reboot from '../../utilities/Reboot'
 import Theme from '../../utilities/Theme'
 import Header from '../Header/Header'
+import Announcement from '../Announcement/Announcement'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,6 +22,8 @@ const Layout = ({ children }) => (
       <>
         <ThemeProvider theme={Theme}>
           <>
+            <Reboot />
+            <Announcement />
             <Header siteTitle={data.site.siteMetadata.title} />
             <div
               style={{
@@ -37,7 +40,6 @@ const Layout = ({ children }) => (
                 <a href="https://www.gatsbyjs.org">Gatsby</a>
               </footer>
             </div>
-            <GlobalStyle />
           </>
         </ThemeProvider>
       </>

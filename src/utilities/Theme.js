@@ -1,43 +1,59 @@
 import { darken } from 'polished'
 
-export const gray = {
-  gray100: '#f8f9fa',
-  gray200: '#e9ecef',
-  gray300: '#dee2e6',
-  gray400: '#ced4da',
-  gray500: '#adb5bd',
-  gray600: '#6c757d',
-  gray700: '#495057',
-  gray800: '#343a40',
-  gray900: '#212529',
+// Color System - Neutrals
+export const neutral = {
+  N100: '#f8f9fa',
+  N200: '#e9ecef',
+  N300: '#dee2e6',
+  N400: '#ced4da',
+  N500: '#adb5bd',
+  N600: '#6c757d',
+  N700: '#495057',
+  N800: '#343a40',
+  N900: '#212529',
 }
 
+// Color System - Brands
 export const brand = {
   primary: '#007bff'
 }
 
+// Color System
 export const color = {
   ...brand,
-  ...gray,
+  ...neutral,
   white: '#fff',
   black: '#000',
 }
 
+// Grid Breakpoints
+export const gridBreakpoints = {
+  xs: '0',
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+}
+
+// Grid Containers
+export const gridContainers = {
+  sm: '540px',
+  md: '720px',
+  lg: '960px',
+  xl: '1140px'
+}
+
+
 const theme = {
   color,
+  gridBreakpoints,
+  gridContainers,
   spacer: '1rem',
   linkColor: color.primary,
   linkDecoration: 'none',
   linkHoverColor: darken(0.15, color.primary),
   linkHoverDecoration: 'underline',
   paragraphMarginBottom: '1rem',
-  gridBreakpoints: {
-    xs: '0',
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-  },
   gridGutterWidth: '24px',
   fontFamily: {
     sansSerif:
@@ -50,12 +66,12 @@ const theme = {
     lighter: 'lighter',
     light: '300',
     normal: '400',
-    bold: '700',
+    bold: '600',
     bolder: 'bolder',
   },
   lineHeightBase: 1.5,
   tableCellPadding: '.75rem',
-  tableCaptionColor: color.gray600,
+  tableCaptionColor: color.N600,
   labelMarginBottom: '.5rem'
 }
 

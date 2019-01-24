@@ -1,6 +1,6 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export const reboot = css`
+const Reboot =  createGlobalStyle`
   /**
    * Reboot
    * Adapted from Bootstrap Reboot v4.2.1 (https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss)
@@ -56,9 +56,11 @@ export const reboot = css`
     font-size: ${props => props.theme.fontSizeBase};
     font-weight: ${props => props.theme.fontWeight.normal};
     line-height: ${props => props.theme.lineHeightBase};
-    color: ${props => props.theme.color.gray900};
+    color: ${props => props.theme.color.N900};
     text-align: left; /* 3 */
     background-color: ${props => props.theme.color.white}; /* 2 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /**
@@ -167,7 +169,7 @@ export const reboot = css`
 
   b,
   strong {
-    font-weight: ${props => props.theme.fontWeight.bolder}; /* Add the correct font weight in Chrome, Edge, and Safari */
+    font-weight: ${props => props.theme.fontWeight.bold}; /* Add the correct font weight in Chrome, Edge, and Safari */
   }
 
   small {
@@ -480,13 +482,5 @@ export const reboot = css`
     display: none !important;
   }
 `
-export const fonts = css`
-  
-`
 
-const GlobalStyle = createGlobalStyle `
-  ${reboot}
-  ${fonts}
-`
-
-export default GlobalStyle
+export default Reboot
