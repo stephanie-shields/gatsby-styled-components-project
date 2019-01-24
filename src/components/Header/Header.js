@@ -26,6 +26,7 @@ const Header = ({ siteTitle, siteSubtitle }) => (
         </Column>
         <Column md={4}>
           <Navigation />
+          Test
         </Column>
       </Row>
     </Container>
