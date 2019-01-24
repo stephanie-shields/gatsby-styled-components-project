@@ -32,5 +32,5 @@ module.exports = {
     // 'gatsby-plugin-offline',
     `gatsby-plugin-styled-components`,
   ],
-  pathPrefix: "/stephanieshields.com-frontend",
+  pathPrefix: "/stephanie-shields-website",
 }

@@ -1,5 +1,5 @@
 {
-  "name": "stephanieshields.com-frontend",
+  "name": "stephanie-shields-website",
   "private": true,
   "description": "A portfolio website for Stephanie Shields",
   "version": "0.1.0",
@@ -40,9 +40,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/scondrey/stephanieshields.com-frontend"
+    "url": "https://github.com/scondrey/stephanie-shields-website"
   },
   "bugs": {
-    "url": "https://github.com/scondrey/stephanieshields.com-frontend/issues"
+    "url": "https://github.com/scondrey/stephanie-shields-website/issues"
   }
 }
