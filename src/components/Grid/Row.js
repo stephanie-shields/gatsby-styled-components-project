@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 
 const Row = styled.div`
   display: flex;
-  flex-wrap: wrap;
 
   ${props =>
     props.hasGutters &&
@@ -11,15 +10,31 @@ const Row = styled.div`
       margin-right: calc(-${props => props.theme.gridGutterWidth} / 2);
       margin-left: calc(-${props => props.theme.gridGutterWidth} / 2);
     `}
+
+  ${props =>
+    props.flexDirection === 'row' &&
+    css`
+      flex-direction: row;
+      flex-wrap: wrap;
+    `}
+
+    ${props =>
+      props.flexDirection === 'column' &&
+      css`
+        flex-direction: column;
+        flex-wrap: nowrap;
+      `}
 `
 
 Row.propTypes = {
   children: PropTypes.node.isRequired,
   hasGutters: PropTypes.bool,
+  flexDirection: PropTypes.oneOf(['row', 'column']),
 }
 
 Row.defaultProps = {
-  hasGutters: true
+  hasGutters: true,
+  flexDirection: 'row',
 }
 
 export default Row

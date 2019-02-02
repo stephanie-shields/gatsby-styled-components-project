@@ -18,6 +18,7 @@ const StyledAnnouncement = styled.section`
   p {
     margin-bottom: 0;
     color: #f6f6f6;
+    line-height: 1.6;
   }
 
   a {

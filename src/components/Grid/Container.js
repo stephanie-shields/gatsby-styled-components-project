@@ -3,10 +3,15 @@ import styled, { css } from 'styled-components'
 
 const Container = styled.div`
   width: 100%;
-  padding-right: calc(${props => props.theme.gridGutterWidth} / 2);
-  padding-left: calc(${props => props.theme.gridGutterWidth} / 2);
   margin-right: auto;
   margin-left: auto;
+
+  ${props =>
+    props.hasGutters &&
+    css`
+      padding-right: calc(${props => props.theme.gridGutterWidth} / 2);
+      padding-left: calc(${props => props.theme.gridGutterWidth} / 2);
+    `}
 
   ${props =>
     props.hasMaxWidth &&
@@ -32,10 +37,12 @@ const Container = styled.div`
 Container.propTypes = {
   children: PropTypes.node.isRequired,
   hasMaxWidth: PropTypes.bool,
+  hasGutters: PropTypes.bool,
 }
 
 Container.defaultProps = {
   hasMaxWidth: false,
+  hasGutters: true
 }
 
 export default Container

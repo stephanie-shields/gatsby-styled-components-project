@@ -5,15 +5,13 @@ const getColumnWidth = value => {
   if (!value) return
 
   let flexBasis = (value / 12) * 100
-  return `flex-basis: ${flexBasis}%;`
+  return `flex-basis: ${flexBasis}%; max-width: ${flexBasis}%; flex-grow: 0; flex-shrink: 0;`
 }
 
 const Column = styled.div`
   position: relative;
   width: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
-  ${({ xs }) => (xs ? getColumnWidth(xs) : 'flex-basis: 100%')};
+  ${({ xs }) => (xs ? getColumnWidth(xs) : `flex-basis: 100%; max-width: 100%; flex-grow: 1; flex-basis: 0;`)};
 
   @media (min-width: ${props => props.theme.gridBreakpoints.sm}) {
     ${({ sm }) => sm && getColumnWidth(sm)};
