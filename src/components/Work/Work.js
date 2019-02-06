@@ -128,7 +128,7 @@ const Work = () => (
             <Project
               projectBackground="linear-gradient(to bottom, #96deda, #50c9c3)"
               projectMediaBackground={ProjectMediaImage01}
-              projectSummaryBackground="#881249"
+              projectSummaryBackground="#00B2CA"
               projectIndex="01"
               projectLabel="UX Design - Front-End Dev"
               projectTitle="myEverify"
@@ -139,7 +139,7 @@ const Work = () => (
                   work I did for the responsive redesign for Release 7.0.
                 </p>
               )}
-              projectBorderBackgroundBefore="#881249"
+              projectBorderBackgroundBefore="#00B2CA"
               projectBorderBackgroundAfter="#96deda" />
           </StyledLayoutColumn>
           <StyledLayoutColumn md={4} hasGutters={false}>
@@ -197,7 +197,7 @@ const Work = () => (
                 </p>
               )}
               projectBorderBackgroundBefore="#00B2CA"
-              projectBorderBackgroundAfter="#96deda" />
+              projectBorderBackgroundAfter="#EEF9FF" />
           </StyledLayoutColumn>
         </Row>
       </Container>

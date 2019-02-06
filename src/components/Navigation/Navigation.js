@@ -40,9 +40,6 @@ const Navigation = () => (
   <StyledNavigation>
     <ul>
       <li>
-        <Link to="/">Work</Link>
-      </li>
-      <li>
         <Link to="/about/">About</Link>
       </li>
       <li>
