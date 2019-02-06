@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import Container from '../Grid/Container'
 import Row from '../Grid/Row'
 import Column from '../Grid/Column'
+import Project from '../Project/Project'
 import ProjectMediaImage01 from '../../images/project-01.png'
 import ProjectMediaImage02 from '../../images/project-02.png'
 
@@ -12,6 +13,7 @@ const StyledSectionWork = styled.section`
   background-color: #fff;
   padding-top: ${rem('16px')};
 `
+
 const StyledSectionWorkGroup = styled.div`
   padding-left: ${rem('80px')};
   position: relative;
@@ -54,138 +56,6 @@ const StyledLayoutColumn = styled(Column)`
   flex-direction: column;
 `
 
-const StyledProject = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  border: 0;
-  margin: 0;
-  margin-bottom: ${rem('16px')};
-  margin-right: ${rem('16px')};
-  height: ${rem('416px')}; // 448
-  background: #eee;
-  position: relative;
-  flex-direction: column;
-  flex-grow: 1;
-  overflow: hidden;
-  background: linear-gradient(to bottom, #96deda, #50c9c3);
-  padding: ${rem('32px')} ${rem('32px')} 0;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #50c9c3;
-    height: ${rem('4px')};
-    z-index: 100;
-  }
-
-  &::before {
-    width: 0;
-    opacity: 0;
-    transition: opacity 0 ease, width 0 ease;
-    transition-delay: 0.5s;
-  }
-
-  &::after {
-    width: 100%;
-    background: #96deda;
-    transition: width 0.5s ease;
-  }
-
-  &:hover {
-    &::before {
-      width: 100%;
-      opacity: 1;
-      transition: opacity 0.5s ease, width 0.5s ease;
-      transition-delay: 0;
-    }
-
-    &::after {
-      width: 0;
-      opacity: 0;
-      transition: width 0 ease;
-    }
-  }
-`
-
-const StyledProjectMedia = styled.div`
-  transition: 0.5s;
-  background-image: ${props => props.backgroundImage};
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center 0;
-  width: 100%;
-  max-width: ${rem('720px')};
-  height: 100%;
-  overflow: hidden;
-
-  img {
-    max-width: ${rem('720px')};
-    width: 100%;
-    height: auto;
-  }
-
-  ${StyledProject}:hover & {
-    opacity: 0.5;
-    transform: translateX(30%);
-  }
-`
-
-const StyledProjectSummary = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: ${rem('16px')};
-  background: #50c9c3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  transition: 0.5s;
-  transform-origin: left;
-  transform: perspective(2000px) rotateY(-90deg);
-
-  ${StyledProject}:hover & {
-    transform: perspective(2000px) rotateY(0deg);
-  }
-`
-
-const StyledProjectIndex = styled.div`
-  margin-top: ${rem('8px')};
-  color: #fff;
-  font-size: ${rem('40px')};
-  opacity: 0.5;
-  line-height: 1.2;
-  align-self: flex-start;
-  flex-grow: 1;
-  align-self: flex-end;
-`
-
-const StyledProjectLabel = styled.div`
-  margin: 0;
-  line-height: 1.4;
-  opacity: 0.8;
-  color: #fff;
-
-  small {
-    font-size: 80%;
-    line-height: inherit;
-  }
-`
-
-const StyledProjectTitle = styled.div`
-  color: #fff;
-  margin: 0;
-  font-size: ${rem('28px')};
-  line-height: 1.4;
-  margin-bottom: ${rem('12px')};
-`
-
 const StyledProjectDescription = styled.div`
   font-size: ${rem('14px')};
   color: #fff;
@@ -202,28 +72,6 @@ const StyledProjectDescription = styled.div`
     }
   }
 `
-
-const StyledProjectActions = styled.div``
-
-const StyledProjectLink = styled.div`
-  margin-bottom: ${rem('8px')};
-
-  svg {
-    transform: rotate(-90deg) translateX(2px);
-    fill: #fff;
-  }
-`
-
-const StyledBadge = styled.span`
-  margin-left: ${rem('8px')};
-  font-size: 75%;
-  white-space: nowrap;
-  border-radius: ${rem('4px')};
-  padding: ${rem('2px')} ${rem('4px')};
-  border: ${rem('1px')} solid #fff;
-`
-
-const StyledProjectExternalLink = styled.div``
 
 const StyledFiller = styled.div`
   background-color: #eee;
@@ -277,33 +125,22 @@ const Work = () => (
       <Container hasGutters={false}>
         <Row hasGutters={false}>
           <StyledLayoutColumn md={8} hasGutters={false}>
-            <StyledProject>
-              <StyledProjectMedia backgroundImage={ProjectMediaImage01}>
-                {/*<img src={ProjectMediaImage01} alt="Featured Project" />*/}
-              </StyledProjectMedia>
-              <StyledProjectSummary>
-                <StyledProjectIndex>01.</StyledProjectIndex>
-                <StyledProjectLabel>
-                  <small>UX Design - Front-End Dev</small>
-                </StyledProjectLabel>
-                <StyledProjectTitle>myEverify</StyledProjectTitle>
-                <StyledProjectDescription>
-                  <p>
-                    myE-Verify is a free web-based servive that offers value to
-                    anyone who works or is looking for a job in the United Sates.
-                    Take a look at the work I did for the responsive redesign for
-                    Release 7.0.
-                  </p>
-                  <StyledProjectActions>
-                    <StyledProjectLink>
-                      Case Study
-                      <StyledBadge>Coming Soon</StyledBadge>
-                    </StyledProjectLink>
-                    <StyledProjectExternalLink />
-                  </StyledProjectActions>
-                </StyledProjectDescription>
-              </StyledProjectSummary>
-            </StyledProject>
+            <Project
+              projectBackground="linear-gradient(to bottom, #96deda, #50c9c3)"
+              projectMediaBackground={ProjectMediaImage01}
+              projectSummaryBackground="#881249"
+              projectIndex="01"
+              projectLabel="UX Design - Front-End Dev"
+              projectTitle="myEverify"
+              projectDescription={(
+                <p>
+                  myE-Verify is a free web-based servive that offers value to anyone who
+                  works or is looking for a job in the United Sates. Take a look at the
+                  work I did for the responsive redesign for Release 7.0.
+                </p>
+              )}
+              projectBorderBackgroundBefore="#881249"
+              projectBorderBackgroundAfter="#96deda" />
           </StyledLayoutColumn>
           <StyledLayoutColumn md={4} hasGutters={false}>
             <StyledFiller />
@@ -345,124 +182,35 @@ const Work = () => (
             <StyledFiller />
           </StyledLayoutColumn>
           <StyledLayoutColumn md={7} hasGutters={false}>
-            <StyledProject>
-              <StyledProjectMedia>
-                {/*<img src={ProjectMediaImage02} alt="Featured Project" />*/}
-              </StyledProjectMedia>
-              <StyledProjectSummary>
-                <StyledProjectIndex>01.</StyledProjectIndex>
-                <StyledProjectLabel>
-                  <small>UX Design - Front-End Dev</small>
-                </StyledProjectLabel>
-                <StyledProjectTitle>myEverify</StyledProjectTitle>
-                <StyledProjectDescription>
-                  <p>
-                    myE-Verify is a free web-based servive that offers value to
-                    anyone who works or is looking for a job in the United Sates.
-                    Take a look at the work I did for the responsive redesign for
-                    Release 7.0.
-                  </p>
-                  <StyledProjectActions>
-                    <StyledProjectLink>
-                      Case Study
-                      <StyledBadge>Coming Soon</StyledBadge>
-                    </StyledProjectLink>
-                    <StyledProjectExternalLink />
-                  </StyledProjectActions>
-                </StyledProjectDescription>
-              </StyledProjectSummary>
-            </StyledProject>
+            <Project
+              projectMediaBackground={ProjectMediaImage02}
+              projectBackground="#EEF9FF"
+              projectSummaryBackground="#00B2CA"
+              projectIndex="02"
+              projectLabel="UX Design - Front-End Dev"
+              projectTitle="myEverify"
+              projectDescription={(
+                <p>
+                  myE-Verify is a free web-based servive that offers value to anyone who
+                  works or is looking for a job in the United Sates. Take a look at the
+                  work I did for the responsive redesign for Release 7.0.
+                </p>
+              )}
+              projectBorderBackgroundBefore="#00B2CA"
+              projectBorderBackgroundAfter="#96deda" />
           </StyledLayoutColumn>
         </Row>
       </Container>
       <Container hasGutters={false}>
         <Row hasGutters={false}>
           <StyledLayoutColumn md={4} hasGutters={false}>
-            <StyledProject>
-              <StyledProjectMedia>
-                {/*<img src={ProjectMediaImage02} alt="Featured Project" />*/}
-              </StyledProjectMedia>
-              <StyledProjectSummary>
-                <StyledProjectIndex>01.</StyledProjectIndex>
-                <StyledProjectLabel>
-                  <small>UX Design - Front-End Dev</small>
-                </StyledProjectLabel>
-                <StyledProjectTitle>myEverify</StyledProjectTitle>
-                <StyledProjectDescription>
-                  <p>
-                    myE-Verify is a free web-based servive that offers value to
-                    anyone who works or is looking for a job in the United Sates.
-                    Take a look at the work I did for the responsive redesign for
-                    Release 7.0.
-                  </p>
-                  <StyledProjectActions>
-                    <StyledProjectLink>
-                      Case Study
-                      <StyledBadge>Coming Soon</StyledBadge>
-                    </StyledProjectLink>
-                    <StyledProjectExternalLink />
-                  </StyledProjectActions>
-                </StyledProjectDescription>
-              </StyledProjectSummary>
-            </StyledProject>
+            <Project />
           </StyledLayoutColumn>
           <StyledLayoutColumn md={4} hasGutters={false}>
-            <StyledProject>
-              <StyledProjectMedia>
-                {/*<img src={ProjectMediaImage02} alt="Featured Project" />*/}
-              </StyledProjectMedia>
-              <StyledProjectSummary>
-                <StyledProjectIndex>01.</StyledProjectIndex>
-                <StyledProjectLabel>
-                  <small>UX Design - Front-End Dev</small>
-                </StyledProjectLabel>
-                <StyledProjectTitle>myEverify</StyledProjectTitle>
-                <StyledProjectDescription>
-                  <p>
-                    myE-Verify is a free web-based servive that offers value to
-                    anyone who works or is looking for a job in the United Sates.
-                    Take a look at the work I did for the responsive redesign for
-                    Release 7.0.
-                  </p>
-                  <StyledProjectActions>
-                    <StyledProjectLink>
-                      Case Study
-                      <StyledBadge>Coming Soon</StyledBadge>
-                    </StyledProjectLink>
-                    <StyledProjectExternalLink />
-                  </StyledProjectActions>
-                </StyledProjectDescription>
-              </StyledProjectSummary>
-            </StyledProject>
+            <Project />
           </StyledLayoutColumn>
           <StyledLayoutColumn md={4} hasGutters={false}>
-            <StyledProject>
-              <StyledProjectMedia>
-                {/*<img src={ProjectMediaImage02} alt="Featured Project" />*/}
-              </StyledProjectMedia>
-              <StyledProjectSummary>
-                <StyledProjectIndex>01.</StyledProjectIndex>
-                <StyledProjectLabel>
-                  <small>UX Design - Front-End Dev</small>
-                </StyledProjectLabel>
-                <StyledProjectTitle>myEverify</StyledProjectTitle>
-                <StyledProjectDescription>
-                  <p>
-                    myE-Verify is a free web-based servive that offers value to
-                    anyone who works or is looking for a job in the United Sates.
-                    Take a look at the work I did for the responsive redesign for
-                    Release 7.0.
-                  </p>
-                  <StyledProjectActions>
-                    <StyledProjectLink>
-                      Case Study
-                      <StyledBadge>Coming Soon</StyledBadge>
-                    </StyledProjectLink>
-                    <StyledProjectExternalLink />
-                  </StyledProjectActions>
-                </StyledProjectDescription>
-              </StyledProjectSummary>
-            </StyledProject>
+            <Project />
           </StyledLayoutColumn>
         </Row>
       </Container>
