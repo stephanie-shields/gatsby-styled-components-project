@@ -14,7 +14,7 @@ const StyledHeader = styled.header`
   padding: ${rem('16px')} 0;
 
   @media print, screen and (min-width: ${props => props.theme.gridBreakpoints.sm}) {
-    padding: ${rem('24px')} ${rem('68px')};
+    padding: ${rem('24px')} 0;
   }
 `
 
@@ -134,7 +134,7 @@ const Header = ({ siteTitle, siteSubtitle }) => (
       <StyledStripe order={5} />
       <StyledStripe order={6} />
     </StyledStripes>
-    <Container>
+    <Container hasMaxWidth>
       <Row>
         <Column xs={6}>
           <StyledBranding>

@@ -12,7 +12,7 @@ const StyledHero = styled.section`
 
   @media print,
     screen and (min-width: ${props => props.theme.gridBreakpoints.sm}) {
-    padding: ${rem('16px')} ${rem('68px')} ${rem('64px')};
+    padding: ${rem('16px')} 0 ${rem('64px')};
   }
 
   h1 {
@@ -43,7 +43,7 @@ const StyledTextGradient = styled.span`
 
 const Hero = () => (
   <StyledHero>
-    <Container>
+    <Container hasMaxWidth>
       <Row>
         <Column>
           <h1>

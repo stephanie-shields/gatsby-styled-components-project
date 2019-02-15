@@ -62,6 +62,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               .concat(meta)}
           >
             <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,900|Yellowtail" rel="stylesheet" />
+            <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
           </Helmet>
         )
       }}

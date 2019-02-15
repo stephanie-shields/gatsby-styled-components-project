@@ -6,6 +6,7 @@ import Reboot from '../../utilities/Reboot'
 import Theme from '../../utilities/Theme'
 import Header from '../Header/Header'
 import Announcement from '../Announcement/Announcement'
+import Footer from '../Footer/Footer'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -29,9 +30,7 @@ const Layout = ({ children }) => (
               siteSubtitle={`[ Designer + Coder ]`}
             />
             {children}
-            <footer>
-              © {new Date().getFullYear()}
-            </footer>
+            <Footer />
           </>
         </ThemeProvider>
       </>

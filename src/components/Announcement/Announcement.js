@@ -12,7 +12,7 @@ const StyledAnnouncement = styled.section`
   padding: ${rem('12px')} 0;
 
   @media print, screen and (min-width: ${props => props.theme.gridBreakpoints.sm}) {
-    padding: ${rem('12px')} ${rem('68px')};
+    padding: ${rem('12px')} 0;
   }
 
   p {
@@ -39,7 +39,7 @@ const StyledTextUppercase = styled.span`
 
 const Announcement = () => (
   <StyledAnnouncement>
-    <Container>
+    <Container hasMaxWidth>
       <Row>
         <Column>
           <p><strong>This site is in <StyledTextUppercase>Beta</StyledTextUppercase>.</strong> For more details on project work, feel free to <Link to="/contact/">contact me</Link> or check out <a href="http://stephaniecondrey.com/" target="_blank" rel="noopener noreferrer">past work</a>.</p>

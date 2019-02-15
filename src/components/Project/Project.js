@@ -9,17 +9,16 @@ const StyledProject = styled.div`
   position: relative;
   border: 0;
   margin: 0;
-  margin-bottom: ${rem('16px')};
-  margin-right: ${rem('16px')};
-  height: ${rem('416px')}; // 448
-  background: #eee;
+  margin-bottom: ${rem('20px')};
+  margin-right: ${rem('10px')};
+  margin-left: ${rem('10px')};
+  height: ${rem('416px')};
   position: relative;
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
-  padding: ${rem('32px')} ${rem('32px')} 0;
-  background: ${props => props.background || "none"};
 
+  /*
   &::before,
   &::after {
     content: '';
@@ -27,7 +26,7 @@ const StyledProject = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    background: ${props => props.borderBackgroundBefore || "none"};
+    background: ${props => props.borderBackgroundBefore || 'none'};
     height: ${rem('4px')};
     z-index: 100;
   }
@@ -41,7 +40,7 @@ const StyledProject = styled.div`
 
   &::after {
     width: 100%;
-    background: ${props => props.borderBackgroundAfter || "none"};
+    background: ${props => props.borderBackgroundAfter || 'none'};
     transition: width 0.5s ease;
   }
 
@@ -59,18 +58,32 @@ const StyledProject = styled.div`
       transition: width 0 ease;
     }
   }
+  */
 `
 
 const StyledProjectMedia = styled.div`
+  width: 100%;
+  height: 100%;
+  background: ${props => props.background || 'none'};
+  // padding: ${props => props.padding || '0'};
+  transition: 0.5s;
+
+  ${StyledProject}:hover & {
+    opacity: 0.25;
+  }
+`
+
+const StyledProjectImage = styled.div`
   transition: 0.5s;
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center 0;
+  background-size: ${props => props.backgroundSize || '100% auto'};
+  background-position: ${props => props.backgroundPosition || 'center 0'};
   width: 100%;
-  max-width: ${rem('720px')};
+  max-width: ${props => props.maxWidth || null};
   height: 100%;
   overflow: hidden;
-  background-image: ${props => props.background || "none"};
+  background-image: ${props => props.background || 'none'};
+  margin: 0 auto;
 
   img {
     max-width: ${rem('720px')};
@@ -92,12 +105,12 @@ const StyledProjectSummary = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 40%;
+  width: ${props => props.width || '50%'};
   height: 100%;
   transition: 0.5s;
   transform-origin: left;
   transform: perspective(2000px) rotateY(-90deg);
-  background: ${props => props.background || "none"};
+  background: ${props => props.background || 'none'};
 
   ${StyledProject}:hover & {
     transform: perspective(2000px) rotateY(0deg);
@@ -152,19 +165,11 @@ const StyledProjectDescription = styled.div`
   }
 `
 
-const StyledProjectActions = styled.div``
-
-const StyledProjectLink = styled.div`
+const StyledProjectActions = styled.div`
   margin-bottom: ${rem('8px')};
-
-  svg {
-    transform: rotate(-90deg) translateX(2px);
-    fill: #fff;
-  }
 `
 
 const StyledBadge = styled.span`
-  margin-left: ${rem('8px')};
   font-size: 75%;
   white-space: nowrap;
   border-radius: ${rem('4px')};
@@ -172,12 +177,38 @@ const StyledBadge = styled.span`
   border: ${rem('1px')} solid #fff;
 `
 
-const StyledProjectExternalLink = styled.div``
-
-const Project = ({ projectBackground, projectMediaBackground, projectSummaryBackground, projectIndex, projectLabel, projectTitle, projectDescription, projectBorderBackgroundBefore, projectBorderBackgroundAfter }) => (
-  <StyledProject background={`${projectBackground}`} borderBackgroundBefore={`${projectBorderBackgroundBefore}`} borderBackgroundAfter={`${projectBorderBackgroundAfter}`}>
-    <StyledProjectMedia background={`url(${projectMediaBackground})`} />
-    <StyledProjectSummary background={`${projectSummaryBackground}`}>
+const Project = ({
+  projectMediaBackground,
+  projectImage,
+  projectSummaryBackground,
+  projectIndex,
+  projectLabel,
+  projectTitle,
+  projectDescription,
+  projectBorderBackgroundBefore,
+  projectBorderBackgroundAfter,
+  projectHasBadge,
+  projectBadgeText,
+  projectSummaryWidth,
+  projectMediaPadding,
+  projectImageBackgroundSize,
+  projectImageBackgroundPosition,
+  projectImageMaxWidth,
+}) => (
+  <StyledProject
+    borderBackgroundBefore={`${projectBorderBackgroundBefore}`}
+    borderBackgroundAfter={`${projectBorderBackgroundAfter}`}
+  >
+    <StyledProjectMedia
+      background={`${projectMediaBackground}`}
+      padding={projectMediaPadding ? `${projectMediaPadding}` : null} >
+      <StyledProjectImage
+        background={`url(${projectImage})`}
+        backgroundSize={projectImageBackgroundSize ? `${projectImageBackgroundSize}` : null}
+        backgroundPosition={projectImageBackgroundPosition ? `${projectImageBackgroundPosition}` : null}
+        maxWidth={projectImageMaxWidth ? `${projectImageMaxWidth}` : null} />
+    </StyledProjectMedia>
+    <StyledProjectSummary background={`${projectSummaryBackground}`} width={`${projectSummaryWidth}`}>
       <StyledProjectIndex>{projectIndex}</StyledProjectIndex>
       <StyledProjectLabel>
         <small>{projectLabel}</small>
@@ -186,11 +217,7 @@ const Project = ({ projectBackground, projectMediaBackground, projectSummaryBack
       <StyledProjectDescription>
         {projectDescription}
         <StyledProjectActions>
-          <StyledProjectLink>
-            Case Study
-            <StyledBadge>Coming Soon</StyledBadge>
-          </StyledProjectLink>
-          <StyledProjectExternalLink />
+          {projectHasBadge && <StyledBadge>{projectBadgeText}</StyledBadge>}
         </StyledProjectActions>
       </StyledProjectDescription>
     </StyledProjectSummary>
@@ -198,15 +225,22 @@ const Project = ({ projectBackground, projectMediaBackground, projectSummaryBack
 )
 
 Project.propTypes = {
-  projectBackground: PropTypes.string,
   projectMediaBackground: PropTypes.string,
+  projectImage: PropTypes.string,
   projectSummaryBackground: PropTypes.string,
   projectSummaryIndex: PropTypes.string,
   projectSummaryLabel: PropTypes.string,
   projectTitle: PropTypes.string,
-  projectDescription: PropTypes.string,
+  // projectDescription: PropTypes.string,
   projectBorderBackgroundBefore: PropTypes.string,
   projectBorderBackgroundAfter: PropTypes.string,
+  projectHasBadge: PropTypes.bool,
+  projectBadgeText: PropTypes.string,
+  projectSummaryWidth: PropTypes.string,
+  projectImageBackgroundSize: PropTypes.string,
+  projectMediaPadding: PropTypes.string,
+  projectImageBackgroundPosition: PropTypes.string,
+  projectImageMaxWidth: PropTypes.string,
 }
 
 export default Project
