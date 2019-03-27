@@ -136,7 +136,7 @@ const Header = ({ siteTitle, siteSubtitle }) => (
     </StyledStripes>
     <Container hasMaxWidth>
       <Row>
-        <Column xs={6}>
+        <Column xs={12} md={8}>
           <StyledBranding>
             <Link to="/">
               <StyledBrandingTitle>{siteTitle}</StyledBrandingTitle>

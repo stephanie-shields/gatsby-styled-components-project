@@ -4,11 +4,15 @@ import { Link } from 'gatsby'
 import { rem } from 'polished'
 
 const StyledNavigation = styled.div`
-  text-align: right;
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: flex-end;
+  display: none;
+  
+  @media (min-width: ${props => props.theme.gridBreakpoints.md}) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    height: 100%;
+  }
 
   ul {
     margin: 0;
@@ -21,6 +25,16 @@ const StyledNavigation = styled.div`
 
       &:last-child {
         margin-right: 0;
+
+        &:after {
+          content: none;
+        }
+      }
+
+      &:after {
+        content: '//';
+        padding-left: ${rem('16px')};
+        color: #faffd1;
       }
     }
   }

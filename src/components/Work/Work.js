@@ -18,9 +18,16 @@ const StyledSectionWork = styled.section`
 `
 
 const StyledSectionWorkGroup = styled.div`
-  // padding-left: ${rem('80px')};
+  /* padding-left: ${rem('80px')}; */
   position: relative;
+
+  ${Row} {
+    width: calc(100% + ${rem('20px')});
+    margin-left: ${rem('-10px')};
+    margin-right: ${rem('-10px')};
+  }
 `
+
 /*
 const StyledSectionLabel = styled.div`
   width: ${rem('80px')};
@@ -130,7 +137,7 @@ const Work = () => (
       */}
       <Container hasMaxWidth hasGutters={false}>
         <Row hasGutters={false}>
-          <StyledLayoutColumn md={4} hasGutters={false}>
+          <StyledLayoutColumn xs={12} xl={4} hasGutters={false}>
             <StyledFiller />
             <StyledTextBlock backgroundColor="#0096D1">
               <StyledTextBlockIcon>
@@ -154,13 +161,12 @@ const Work = () => (
               </StyledTextBlockSummary>
             </StyledTextBlock>
           </StyledLayoutColumn>
-          <StyledLayoutColumn md={8} hasGutters={false}>
+          <StyledLayoutColumn xs={12} xl={8} hasGutters={false}>
             <Project
               projectMediaBackground="linear-gradient(to bottom, #96deda, #50c9c3)"
               projectImage={ProjectMediaImage01}
-              projectSummaryBackground="#4C52C9"
-              // projectSummaryBackground="#4B56CC"
-              projectIndex="01"
+              projectSummaryBackground="#00bfa5"
+              projectIndex={1}
               projectLabel="UX Design - Front-End Dev"
               projectTitle="Recreation.gov"
               projectDescription={
@@ -191,13 +197,13 @@ const Work = () => (
       */}
       <Container hasMaxWidth hasGutters={false}>
         <Row hasGutters={false}>
-        <StyledLayoutColumn md={7} hasGutters={false}>
+          <StyledLayoutColumn xs={12} lg={7} hasGutters={false}>
             <Project
               projectImage={ProjectMediaImage02}
               projectMediaBackground="#EEF9FF"
-              projectSummaryBackground="#D62877"
+              projectSummaryBackground="#227FCE"
               // projectSummaryBackground="#4B56CC"
-              projectIndex="02"
+              projectIndex={2}
               projectLabel="UX Design - Front-End Dev"
               projectTitle="myEverify"
               projectDescription={
@@ -215,13 +221,13 @@ const Work = () => (
               projectImageBackgroundPosition={`center`}
             />
           </StyledLayoutColumn>
-          <StyledLayoutColumn md={5} hasGutters={false}>
+          <StyledLayoutColumn xs={12} lg={5} hasGutters={false}>
             <Project
               projectImage={ProjectMediaImage03}
               projectMediaBackground="linear-gradient(to bottom, #EA384D, #D31027)"
-              projectSummaryBackground="#227FCE"
+              projectSummaryBackground="#E0193D"
               // projectSummaryBackground="#4B56CC"
-              projectIndex="03"
+              projectIndex={3}
               projectLabel="Front-End Dev"
               projectTitle="Booz Allen M&C"
               projectDescription={
@@ -243,13 +249,13 @@ const Work = () => (
       </Container>
       <Container hasMaxWidth hasGutters={false}>
         <Row hasGutters={false}>
-          <StyledLayoutColumn md={4} hasGutters={false}>
+          <StyledLayoutColumn xs={12} lg={6} xl={4} hasGutters={false}>
             <Project
               projectImage={ProjectMediaImage04}
               projectMediaBackground="linear-gradient(to bottom, #8F94FB, #4E54C8)"
-              projectSummaryBackground="#E0193D"
+              projectSummaryBackground="#4C52C9"
               // projectSummaryBackground="#4B56CC"
-              projectIndex="04"
+              projectIndex={4}
               projectLabel="Design Research - UX Design"
               projectTitle="NodeKin"
               projectDescription={
@@ -267,13 +273,13 @@ const Work = () => (
               projectImageBackgroundPosition={`${rem('16px')} ${rem('32px')}`}
             />
           </StyledLayoutColumn>
-          <StyledLayoutColumn md={4} hasGutters={false}>
+          <StyledLayoutColumn xs={12} lg={6} xl={4} hasGutters={false}>
             <Project
               projectImage={ProjectMediaImage05}
               projectMediaBackground="linear-gradient(to bottom, #F09819, #FF512F)"
-              projectSummaryBackground="#4C52C9"
+              projectSummaryBackground="#ff6d00"
               // projectSummaryBackground="#4B56CC"
-              projectIndex="05"
+              projectIndex={5}
               projectLabel="UX Design - Front-End Dev"
               projectTitle="Digital Solver Space"
               projectDescription={
@@ -287,11 +293,11 @@ const Work = () => (
               projectHasBadge
               projectBadgeText="Case Study Still Coming"
               projectSummaryWidth={`${rem('320px')}`}
-              projectImageBackgroundSize="100% auto"
-              projectImageBackgroundPosition={`${rem('40px')} ${rem('40px')}`}
+              projectImageBackgroundSize="auto 100%"
+              projectImageBackgroundPosition={`${rem('48px')} ${rem('48px')}`}
             />
           </StyledLayoutColumn>
-          <StyledLayoutColumn md={4} hasGutters={false}>
+          <StyledLayoutColumn xs={12} lg={12} xl={4} hasGutters={false}>
             <StyledFiller />
             <StyledTextBlock backgroundColor="#D62877">
               <StyledTextBlockIcon>

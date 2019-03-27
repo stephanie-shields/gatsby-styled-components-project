@@ -8,7 +8,7 @@ import Column from '../Grid/Column'
 
 const StyledHero = styled.section`
   position: relative;
-  padding: ${rem('16px')} 0;
+  padding: ${rem('16px')} 0 ${rem('32px')};
 
   @media print,
     screen and (min-width: ${props => props.theme.gridBreakpoints.sm}) {
@@ -17,10 +17,18 @@ const StyledHero = styled.section`
 
   h1 {
     font-weight: 900;
-    font-size: ${rem('68px')};
+    font-size: ${rem('48px')};
     line-height: 1.2;
     color: #ffc371;
     margin-bottom: ${rem('16px')};
+
+    @media (min-width: ${props => props.theme.gridBreakpoints.md}) {
+      font-size: ${rem('58px')};
+    }
+
+    @media (min-width: ${props => props.theme.gridBreakpoints.lg}) {
+      font-size: ${rem('68px')};
+    }
   }
 
   p {

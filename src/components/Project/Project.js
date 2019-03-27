@@ -12,11 +12,15 @@ const StyledProject = styled.div`
   margin-bottom: ${rem('20px')};
   margin-right: ${rem('10px')};
   margin-left: ${rem('10px')};
-  height: ${rem('416px')};
+  height: ${rem('368px')};
   position: relative;
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
+
+  @media (min-width: ${props => props.theme.gridBreakpoints.xl}) {
+   height: ${rem('416px')};
+  }
 
   /*
   &::before,
@@ -126,6 +130,10 @@ const StyledProjectIndex = styled.div`
   align-self: flex-start;
   flex-grow: 1;
   align-self: flex-end;
+
+  &:before {
+    content: '0';
+  }
 `
 
 const StyledProjectLabel = styled.div`
