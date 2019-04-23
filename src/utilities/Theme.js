@@ -26,13 +26,31 @@ export const color = {
   black: '#000',
 }
 
+// Spacing
+export const spacing = {
+  spacer: '1rem'
+}
+
+// Links
+export const links = {
+  linkColor: color.primary,
+  linkDecoration: 'none',
+  linkHoverColor: darken(0.15, color.primary),
+  linkHoverDecoration: 'underline'
+}
+
+// Paragraphs
+export const paragraphs = {
+  paragraphMarginBottom: '1rem'
+}
+
 // Grid Breakpoints
 export const gridBreakpoints = {
   xs: '0',
   sm: '576px',
   md: '768px',
   lg: '992px',
-  xl: '1200px',
+  xl: '1290px',
 }
 
 // Grid Containers
@@ -43,18 +61,13 @@ export const gridContainers = {
   xl: '1290px' // original: 1200px
 }
 
+// Grid Columns
+export const gridColumns = {
+  gridGutterWidth: '24px'
+}
 
-const theme = {
-  color,
-  gridBreakpoints,
-  gridContainers,
-  spacer: '1rem',
-  linkColor: color.primary,
-  linkDecoration: 'none',
-  linkHoverColor: darken(0.15, color.primary),
-  linkHoverDecoration: 'underline',
-  paragraphMarginBottom: '1rem',
-  gridGutterWidth: '24px',
+// Typography
+export const typography = {
   fontFamily: {
     sansSerif:
       '"Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif',
@@ -69,10 +82,120 @@ const theme = {
     bold: '600',
     bolder: 'bolder',
   },
-  lineHeightBase: 1.5,
+  lineHeightBase: 1.5
+}
+
+// Tables
+export const tables = {
   tableCellPadding: '.75rem',
-  tableCaptionColor: color.N600,
+  tableCaptionColor: color.N600
+}
+
+// Forms
+export const forms = {
   labelMarginBottom: '.5rem'
 }
 
-export default theme
+// Variables
+export const variables = {
+  color,
+  ...spacing,
+  ...links,
+  ...paragraphs,
+  gridBreakpoints,
+  gridContainers,
+  ...gridColumns,
+  ...typography,
+  ...tables,
+  ...forms
+}
+
+// export default theme
+
+// primary: '#ff0198'
+// primary: '#6e27c5'
+
+export const T105 = {
+  primary: '#F9D5DB',
+  ...variables
+}
+
+export const T110 = {
+  primary: '#F6C0CA',
+  ...variables
+}
+
+export const T120 = {
+  primary: '#F3ABB8',
+  ...variables
+}
+
+export const T130 = {
+  primary: '#F096A6',
+  ...variables
+}
+
+export const T140 = {
+  primary: '#EE8195',
+  ...variables
+}
+
+export const T150 = {
+  primary: '#EB6C83',
+  ...variables
+}
+
+export const T160 = {
+  primary: '#E85771',
+  ...variables
+}
+
+export const T170 = {
+  primary: '#E54260',
+  ...variables
+}
+
+export const T180 = {
+  primary: '#E22D4E',
+  ...variables
+}
+
+export const T190 = {
+  primary: '#E0193D',
+  ...variables
+}
+
+export const T200 = {
+  primary: '#CA1360',
+  ...variables
+}
+
+export const T300 = {
+  primary: '#BC0D75',
+  ...variables
+}
+
+export const T400 = {
+  primary: '#6E24C2',
+  ...variables
+}
+
+export const T500 = {
+  primary: '#5E3BC6',
+  ...variables
+}
+
+export const T600 = {
+  primary: '#4C52C9',
+  ...variables
+}
+
+export const T700 = {
+  primary: '#227FCE',
+  ...variables
+}
+
+export const T800 = {
+  primary: '#0096D1',
+  ...variables
+}

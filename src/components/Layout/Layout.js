@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
 import Reboot from '../../utilities/Reboot'
-import Theme from '../../utilities/Theme'
-import Header from '../Header/Header'
-import Announcement from '../Announcement/Announcement'
-import Footer from '../Footer/Footer'
+import { T190 } from '../../utilities/Theme'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,16 +18,10 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={T190}>
           <>
             <Reboot />
-            <Announcement />
-            <Header
-              siteTitle={data.site.siteMetadata.title}
-              siteSubtitle={`[ Designer + Coder ]`}
-            />
             {children}
-            <Footer />
           </>
         </ThemeProvider>
       </>

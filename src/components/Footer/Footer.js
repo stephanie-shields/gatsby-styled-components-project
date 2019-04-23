@@ -47,6 +47,11 @@ const StyledContactInformation = styled.div`
     padding: 0;
     list-style: none;
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: ${props => props.theme.gridBreakpoints.md}) {
+      flex-direction: row;
+    }
 
     li {
       margin-right: ${rem('16px')};
@@ -93,7 +98,7 @@ const Footer = ({ siteTitle, siteSubtitle }) => (
   <StyledFooter>
     <Container hasMaxWidth>
       <Row>
-        <Column xs={6}>
+        <Column lg={12} xl={6}>
           <StyledContactInformation>
             <ul>
               <li>stephanie.condrey@gmail.com </li>
@@ -127,7 +132,7 @@ const Footer = ({ siteTitle, siteSubtitle }) => (
             </StyledSocialLink>
           </StyledSocialLinkList>
         </Column>
-        <Column xs={6}>
+        <Column lg={12} xl={6}>
           <Slider {...settings}>
             <StyledQuote borderColor="227FCE">
               Initial Product Designs will be Wrong

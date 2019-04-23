@@ -25,6 +25,8 @@ const StyledSectionWorkGroup = styled.div`
     width: calc(100% + ${rem('20px')});
     margin-left: ${rem('-10px')};
     margin-right: ${rem('-10px')};
+    padding-right: calc(${props => props.theme.gridGutterWidth} / 2);
+    padding-left: calc(${props => props.theme.gridGutterWidth} / 2);
   }
 `
 
@@ -269,8 +271,8 @@ const Work = () => (
               projectHasBadge
               projectBadgeText="Case Study Still Coming"
               projectSummaryWidth={`${rem('320px')}`}
-              projectImageBackgroundSize="130% auto"
-              projectImageBackgroundPosition={`${rem('16px')} ${rem('32px')}`}
+              projectImageBackgroundSize={`${rem('414px')} auto`}
+              projectImageBackgroundPosition={`center ${rem('32px')}`}
             />
           </StyledLayoutColumn>
           <StyledLayoutColumn xs={12} lg={6} xl={4} hasGutters={false}>

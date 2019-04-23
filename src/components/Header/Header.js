@@ -126,6 +126,8 @@ const StyledBrandingSubtitle = styled.div`
 
 const Header = ({ siteTitle, siteSubtitle }) => (
   <StyledHeader>
+    
+    {/*
     <StyledStripes>
       <StyledStripe order={1} />
       <StyledStripe order={2} />
@@ -134,21 +136,20 @@ const Header = ({ siteTitle, siteSubtitle }) => (
       <StyledStripe order={5} />
       <StyledStripe order={6} />
     </StyledStripes>
-    <Container hasMaxWidth>
-      <Row>
-        <Column xs={12} md={8}>
-          <StyledBranding>
-            <Link to="/">
-              <StyledBrandingTitle>{siteTitle}</StyledBrandingTitle>
-              <StyledBrandingSubtitle>{siteSubtitle}</StyledBrandingSubtitle>
-            </Link>
-          </StyledBranding>
-        </Column>
-        <Column>
-          <Navigation />
-        </Column>
-      </Row>
-    </Container>
+    */}
+    <Row>
+      <Column xs={12} md={8}>
+        <StyledBranding>
+          <Link to="/">
+            <StyledBrandingTitle>{siteTitle}</StyledBrandingTitle>
+            <StyledBrandingSubtitle>{siteSubtitle}</StyledBrandingSubtitle>
+          </Link>
+        </StyledBranding>
+      </Column>
+      <Column>
+        <Navigation />
+      </Column>
+    </Row>
   </StyledHeader>
 )
 

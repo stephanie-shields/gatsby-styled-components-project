@@ -21,20 +21,10 @@ const StyledNavigation = styled.div`
 
     li {
       float: left;
-      margin: 0 ${rem('8px')};
+      margin: 0 ${rem('12px')};
 
       &:last-child {
         margin-right: 0;
-
-        &:after {
-          content: none;
-        }
-      }
-
-      &:after {
-        content: '//';
-        padding-left: ${rem('16px')};
-        color: #faffd1;
       }
     }
   }
