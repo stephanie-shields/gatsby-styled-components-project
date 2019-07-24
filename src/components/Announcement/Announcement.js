@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { rem } from 'polished'
-import Container from '../Grid/Container'
-import Row from '../Grid/Row'
-import Column from '../Grid/Column'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { rem } from 'polished';
+import Container from '../Grid/Container';
+import Row from '../Grid/Row';
+import Column from '../Grid/Column';
 
 const StyledAnnouncement = styled.section`
   background-color: #092742;
@@ -49,4 +49,4 @@ const Announcement = () => (
   </StyledAnnouncement>
 )
 
-export default Announcement
+export default Announcement;

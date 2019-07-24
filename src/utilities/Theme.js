@@ -115,52 +115,7 @@ export const variables = {
 // primary: '#ff0198'
 // primary: '#6e27c5'
 
-export const T105 = {
-  primary: '#F9D5DB',
-  ...variables
-}
-
-export const T110 = {
-  primary: '#F6C0CA',
-  ...variables
-}
-
-export const T120 = {
-  primary: '#F3ABB8',
-  ...variables
-}
-
-export const T130 = {
-  primary: '#F096A6',
-  ...variables
-}
-
-export const T140 = {
-  primary: '#EE8195',
-  ...variables
-}
-
-export const T150 = {
-  primary: '#EB6C83',
-  ...variables
-}
-
-export const T160 = {
-  primary: '#E85771',
-  ...variables
-}
-
-export const T170 = {
-  primary: '#E54260',
-  ...variables
-}
-
-export const T180 = {
-  primary: '#E22D4E',
-  ...variables
-}
-
-export const T190 = {
+export const T100 = {
   primary: '#E0193D',
   ...variables
 }

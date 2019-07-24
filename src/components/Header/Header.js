@@ -1,102 +1,24 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { rem } from 'polished'
-
-import Container from '../Grid/Container'
-import Row from '../Grid/Row'
-import Column from '../Grid/Column'
-import Navigation from '../Navigation/Navigation'
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { Link } from 'gatsby';
+import { rem } from 'polished';
+import Container from '../Grid/Container';
+import Row from '../Grid/Row';
+import Column from '../Grid/Column';
+import Navigation from '../Navigation/Navigation';
 
 const StyledHeader = styled.header`
-  position: relative;
   padding: ${rem('16px')} 0;
+  z-index: 10;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  width: 100%;
 
   @media print, screen and (min-width: ${props => props.theme.gridBreakpoints.sm}) {
     padding: ${rem('24px')} 0;
+    padding-left: calc(8% * 7/12 - 12px);
   }
-`
-
-const StyledStripes = styled.div`
-  position: absolute;
-  left: 0;
-  top: 50%;
-  right: 0;
-  transform: skewY(-8deg);
-  pointer-events: none;
-  z-index: -10;
-  bottom: ${rem('-700px')};
-`
-
-const StyledStripe = styled.div`
-  position: absolute;
-  top: auto;
-  left: 0;
-  right: 0;
-  height: ${rem('204px')};
-
-  ${({ order }) =>
-    order === 1
-      ? `
-      height: 5000px;
-      bottom: 203px;
-      background: linear-gradient(90deg, #ed4234, #881249)
-    `
-      : null}
-
-  ${({ order }) =>
-    order === 2
-      ? `
-      right: calc(50% - 30px);
-      bottom: 0;
-      background: linear-gradient(90deg,#fff 50%,#f1f4f7);
-    `
-      : null}
-
-  ${({ order }) =>
-    order === 3
-      ? `
-        left: calc(50% + 30px);
-        bottom: 0;
-        background: linear-gradient(90deg,#d2363a,#a42043);
-      `
-      : null}
-
-  ${({ order }) =>
-    order === 4
-      ? `
-        bottom: 204px;
-        left: 75%;
-        background: linear-gradient(90deg,#c12d3d,#ed4234);
-      `
-      : null}
-
-  ${({ order }) =>
-    order === 5
-      ? `
-        bottom: 408px;
-        left: calc(50% + 410px);
-        background: linear-gradient(90deg,#b6283f,#881249);
-      `
-      : null}
-
-  ${({ order }) =>
-    order === 6
-      ? `
-        bottom: 612px;
-        right: 30%;
-        background: linear-gradient(90deg,#d2363a,#a42043);
-      `
-      : null}
-
-  ${({ order }) =>
-    order === 7
-      ? `
-        bottom: 816px;
-        background: #ed4234;
-      `
-      : null}
 `
 
 const StyledBranding = styled.div`
@@ -124,43 +46,95 @@ const StyledBrandingSubtitle = styled.div`
   font-weight: 600;
 `
 
-const Header = ({ siteTitle, siteSubtitle }) => (
-  <StyledHeader>
-    
-    {/*
-    <StyledStripes>
-      <StyledStripe order={1} />
-      <StyledStripe order={2} />
-      <StyledStripe order={3} />
-      <StyledStripe order={4} />
-      <StyledStripe order={5} />
-      <StyledStripe order={6} />
-    </StyledStripes>
-    */}
-    <Row>
-      <Column xs={12} md={8}>
-        <StyledBranding>
-          <Link to="/">
-            <StyledBrandingTitle>{siteTitle}</StyledBrandingTitle>
-            <StyledBrandingSubtitle>{siteSubtitle}</StyledBrandingSubtitle>
-          </Link>
-        </StyledBranding>
-      </Column>
-      <Column>
-        <Navigation />
-      </Column>
-    </Row>
-  </StyledHeader>
-)
+const StyledNavigationAndPalette = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-  siteSubtitle: PropTypes.string,
+const StyledColorPalette = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+  background-color: #161D1E;
+  padding: ${rem('4px')} ${rem('2px')};
+  margin-left: ${rem('16px')};
+`
+
+const StyledColorButton = styled.button`
+  width: ${rem('32px')};
+  height: ${rem('32px')};
+  background: ${props => props.color};
+  border: none;
+  flex: 0 0 auto;
+  margin: 0 ${rem('2px')};
+
+  &:focus {
+    outline: none;
+  }
+  
+  ${props => props.active === 'true' && css`
+    border-radius: 50%;
+  `}
+`
+
+const StyledScreenReaderOnly = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+`
+
+class Header extends React.Component {
+  
+  renderColorPalette() {
+    return this.props.colors.map((color, index) => {
+      return (
+        <StyledColorButton
+          key={color.id}
+          id={color.id}
+          value={color.theme}
+          onClick={index => {
+            this.props.handleThemeChange(index);
+            this.props.handleActiveIndex(index);
+         }}
+          active={index === this.props.activeIndex ? 'true' : 'false'}
+          color={color.color}>
+          <StyledScreenReaderOnly>{color.label}</StyledScreenReaderOnly>
+        </StyledColorButton>
+      )
+    });
+  };
+
+  render() {
+    return (
+      <StyledHeader>
+        <Container>
+          <Row>
+            <Column xs={12} md={8}>
+              <StyledBranding>
+                <Link to="/">
+                  <StyledBrandingTitle>{this.props.siteTitle}</StyledBrandingTitle>
+                  <StyledBrandingSubtitle>{this.props.siteSubtitle}</StyledBrandingSubtitle>
+                </Link>
+              </StyledBranding>
+            </Column>
+            <Column>
+              <StyledNavigationAndPalette>
+                <Navigation />
+                <StyledColorPalette>
+                  {this.renderColorPalette()}
+                </StyledColorPalette>
+              </StyledNavigationAndPalette>
+            </Column>
+          </Row>
+        </Container>
+      </StyledHeader>
+    )
+  }
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-  siteSubtitle: ``,
-}
-
-export default Header
+export default Header;

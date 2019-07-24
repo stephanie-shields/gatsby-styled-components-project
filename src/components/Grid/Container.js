@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
@@ -45,4 +45,4 @@ Container.defaultProps = {
   hasGutters: true
 }
 
-export default Container
+export default Container;

@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { rem } from 'polished'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { rem } from 'polished';
 
 const StyledNavigation = styled.div`
   display: none;
@@ -53,4 +53,4 @@ const Navigation = () => (
   </StyledNavigation>
 )
 
-export default Navigation
+export default Navigation;

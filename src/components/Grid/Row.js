@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 
 const Row = styled.div`
   display: flex;
@@ -37,4 +37,4 @@ Row.defaultProps = {
   flexDirection: 'row',
 }
 
-export default Row
+export default Row;

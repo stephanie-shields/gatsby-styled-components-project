@@ -1,11 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { rem } from 'polished'
-
-import Container from '../Grid/Container'
-import Row from '../Grid/Row'
-import Column from '../Grid/Column'
-import Slider from 'react-slick'
+import React from 'react';
+import styled from 'styled-components';
+import { rem } from 'polished';
+import Container from '../Grid/Container';
+import Row from '../Grid/Row';
+import Column from '../Grid/Column';
+import Slider from 'react-slick';
 
 const StyledFooter = styled.footer`
   position: relative;
@@ -153,4 +152,4 @@ const Footer = ({ siteTitle, siteSubtitle }) => (
   </StyledFooter>
 )
 
-export default Footer
+export default Footer;

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 
 const getColumnWidth = value => {
   if (!value) return
@@ -46,4 +46,4 @@ Column.defaultProps = {
   hasGutters: true,
 }
 
-export default Column
+export default Column;

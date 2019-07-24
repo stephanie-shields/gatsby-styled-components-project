@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const Reboot =  createGlobalStyle`
   /**
@@ -483,4 +483,4 @@ const Reboot =  createGlobalStyle`
   }
 `
 
-export default Reboot
+export default Reboot;

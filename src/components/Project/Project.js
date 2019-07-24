@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { rem } from 'polished'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { rem } from 'polished';
 
 const StyledProject = styled.div`
   display: flex;
@@ -21,55 +21,12 @@ const StyledProject = styled.div`
   @media (min-width: ${props => props.theme.gridBreakpoints.xl}) {
    height: ${rem('416px')};
   }
-
-  /*
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: ${props => props.borderBackgroundBefore || 'none'};
-    height: ${rem('4px')};
-    z-index: 100;
-  }
-
-  &::before {
-    width: 0;
-    opacity: 0;
-    transition: opacity 0 ease, width 0 ease;
-    transition-delay: 0.5s;
-  }
-
-  &::after {
-    width: 100%;
-    background: ${props => props.borderBackgroundAfter || 'none'};
-    transition: width 0.5s ease;
-  }
-
-  &:hover {
-    &::before {
-      width: 100%;
-      opacity: 1;
-      transition: opacity 0.5s ease, width 0.5s ease;
-      transition-delay: 0;
-    }
-
-    &::after {
-      width: 0;
-      opacity: 0;
-      transition: width 0 ease;
-    }
-  }
-  */
 `
 
 const StyledProjectMedia = styled.div`
   width: 100%;
   height: 100%;
   background: ${props => props.background || 'none'};
-  // padding: ${props => props.padding || '0'};
   transition: 0.5s;
 
   ${StyledProject}:hover & {
@@ -96,7 +53,6 @@ const StyledProjectImage = styled.div`
   }
 
   ${StyledProject}:hover & {
-    // opacity: 0.5;
     transform: translateX(30%);
   }
 `
@@ -239,7 +195,6 @@ Project.propTypes = {
   projectSummaryIndex: PropTypes.string,
   projectSummaryLabel: PropTypes.string,
   projectTitle: PropTypes.string,
-  // projectDescription: PropTypes.string,
   projectBorderBackgroundBefore: PropTypes.string,
   projectBorderBackgroundAfter: PropTypes.string,
   projectHasBadge: PropTypes.bool,
@@ -251,4 +206,4 @@ Project.propTypes = {
   projectImageMaxWidth: PropTypes.string,
 }
 
-export default Project
+export default Project;

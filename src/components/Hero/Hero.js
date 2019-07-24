@@ -1,207 +1,274 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { rem } from 'polished'
-import Container from '../Grid/Container'
-import Row from '../Grid/Row'
-import Column from '../Grid/Column'
-import Header from '../Header/Header'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { rem } from 'polished';
+import { Link } from 'gatsby';
+import Container from '../Grid/Container';
+import Row from '../Grid/Row';
+import Column from '../Grid/Column';
+
+const propTypes = {
+  primaryColor: PropTypes.string
+};
+
+const StyledStripes = styled.div`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  right: 0;
+  transform: skewY(-8deg);
+  pointer-events: none;
+  z-index: 0;
+  bottom: 0;
+`
+
+const StyledStripe = styled.div`
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  height: ${rem('204px')};
+
+  ${({ order }) =>
+    order === 1
+      ? `
+      height: 5000px;
+      bottom: 203px;
+    `
+      : null}
+
+  ${({ order }) =>
+    order === 2
+      ? `
+        bottom: 612px;
+        right: 30%;
+        background: linear-gradient(90deg, rgba(224, 25, 61, 0.15), rgba(224, 25, 61, 0.3));
+      `
+      : null}
+
+  ${({ order }) =>
+    order === 3
+      ? `
+        bottom: 408px;
+        left: 20%;
+        background: linear-gradient(90deg, rgba(224, 25, 61, 0.2), rgba(224, 25, 61, 0.5));
+      `
+      : null}
+
+  ${({ order }) =>
+    order === 4
+      ? `
+        bottom: 204px;
+        left: 40%;
+        background: linear-gradient(90deg, rgba(224, 25, 61, 0.1), rgba(224, 25, 61, 0.3));
+      `
+      : null}
+
+  ${({ order }) =>
+    order === 5
+      ? `
+      right: calc(50% - 30px);
+      bottom: 0;
+      background: linear-gradient(90deg, rgba(224, 25, 61, 0.15), rgba(224, 25, 61, 0.25));
+    `
+      : null}
+
+  ${({ order }) =>
+    order === 6
+      ? `
+        left: calc(50% + 30px);
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(224, 25, 61, 0.3), rgba(224, 25, 61, 0.15));
+      `
+      : null}
+`
 
 const StyledHero = styled.section`
   position: relative;
-
-  h1 {
-    font-weight: 900;
-    font-size: ${rem('48px')};
-    line-height: 1.2;
-    color: #fff;
-    // margin-bottom: ${rem('16px')};
-    // color: transparent;
-    // -webkit-text-stroke: 2px #fff;
-
-    @media (min-width: ${props => props.theme.gridBreakpoints.md}) {
-      font-size: ${rem('58px')};
-    }
-
-    @media (min-width: ${props => props.theme.gridBreakpoints.lg}) {
-      font-size: ${rem('68px')};
-    }
-  }
-
-  h2 {
-    font-weight: 400;
-    font-size: ${rem('33px')};
-    color: #fff;
-    margin-bottom: ${rem('16px')};
-  }
-
-  p {
-    color: #fff;
-    margin-bottom: ${rem('128px')};
-    font-size: ${rem('18px')};
-    line-height: 1.6;
-  }
+  overflow: hidden;
 `
 
-const StyledTextGradient = styled.span`
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  position: relative;
-  background-image: linear-gradient(to right, #FFEDBC, #FAFFD1);
+const StyledHeroLeft = styled.div`
+  background-color: ${props => props.theme.primary};
+  overflow: hidden;
+  padding-left: 8%;
+  padding-right: 56px;
+  padding-top: 90px;
 `
 
-const StyledText = styled.div`
+const StyledSubHeader = styled.div`
   font-size: ${rem('25px')};
   color: #fff;
   letter-spacing: ${rem('10px')};
   margin-bottom: ${rem('8px')};
   margin-top: ${rem('56px')};
+  position: relative;
 `
 
-const StyledColorSection = styled.div`
-  background-color: #fff;
+const StyledHeader = styled.h1`
+  font-weight: 900;
+  font-size: ${rem('48px')};
+  line-height: 1.2;
+  color: #fff;
+  position: relative;
+
+  @media (min-width: ${props => props.theme.gridBreakpoints.md}) {
+    font-size: ${rem('58px')};
+  }
+
+  @media (min-width: ${props => props.theme.gridBreakpoints.lg}) {
+    font-size: ${rem('68px')};
+  }
+`
+
+const StyledLeadParagraph = styled.p`
+  font-weight: 400;
+  font-size: ${rem('33px')};
+  color: #fff;
+  margin-bottom: ${rem('16px')};
+  position: relative;
+`
+
+const StyledParagraph = styled.p`
+  color: #fff;
+  margin-bottom: ${rem('128px')};
+  font-size: ${rem('18px')};
+  line-height: 1.6;
+`
+
+const StyledCalloutSection = styled.div`
+  background-color: rgba(0, 0, 0, 0.1);
   height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+`
+
+const StyleCalloutBackground = styled.div``
+
+const StyledArticle = styled.div`
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
+  
+  a {
+    color: #fff;
+    display: block;
+  }
+
+  &:last-child {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`
+
+const StyledArticleType = styled.div`
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
 
   &:after {
     content: '';
-    display: inline-flex;
+    display: block;
+    height: 2px;
+    width: 50px;
     background-color: #fff;
-    width: ${rem('400px')};
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: ${rem('-400px')};
+    margin-top: 8px;
   }
 `
 
-const StyledColorPanelHeader = styled.div`
-  padding: ${rem('8px')} ${rem('24px')};
-  border-bottom: ${rem('1px')} solid #D8D8D8;
+const StyledArticleTitle = styled.div`
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 24px;
 `
 
-const StyledColorPanelBody = styled.div``
+const StyledArticleImage = styled.div`
+  flex: 0 0 50%;
 
-const StyledColorSectionTitle = styled.div`
-  font-size: ${rem('18px')};
-  font-weight: 600;
-  margin-top:  ${rem('16px')};
-`
-
-const StyledColorLabelsAndPalette = styled.div`
-  padding: ${rem('24px')} ${rem('8px')};
-`
-
-const StyledColorLabels = styled.div`
-`
-
-const StyledColorPalette = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const StyledColorButton = styled.button`
-  width: ${rem('48px')};
-  height: ${rem('48px')};
-  background: ${props => props.color};
-  border: ${rem('1px')} solid #fff;
-  flex: 0 0 auto;
-
-  &:focus {
-    outline: none;
+  svg {
+    width: 100%;
+    height: auto;
   }
-  
-  ${props => props.active === 'true' && css`
-    border-radius: 50%;
-  `}
 `
 
-const StyledScreenReaderOnly = styled.span`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
+const StyledArticleContent = styled.div`
+  padding: 40px 24px 56px;
+  z-index: 10;
+  flex: 0 0 50%;
 `
 
-export default class Hero extends React.Component {
-  
-  renderColorPalette() {
-    return this.props.colors.map((color, index) => {
-      return (
-        <StyledColorButton
-          key={color.id}
-          id={color.id}
-          value={color.theme}
-          onClick={index => {
-            this.props.handleThemeChange(index);
-            this.props.handleActiveIndex(index);
-         }}
-          active={index === this.props.activeIndex ? 'true' : 'false'}
-          color={color.color}>
-          <StyledScreenReaderOnly>{color.label}</StyledScreenReaderOnly>
-        </StyledColorButton>
-      )
-    });
-  };
-
+class Hero extends React.Component {
   render() {
     return (
       <StyledHero>
-        <Container hasMaxWidth>
-          <Row>
-            <Column xl={7}>
-              <Header
-                siteTitle={`Stephanie Shields`}
-                siteSubtitle={`[ Designer + Coder ]`}
-              />
-              {/*
-              <h1>
-                Hello <StyledTextGradient>world,</StyledTextGradient> I work to{' '}
-                deliver <StyledTextGradient>meaningful</StyledTextGradient>{' '}
-                digital <StyledTextGradient>experiences</StyledTextGradient>*
-              </h1>
-              <h2>
-                I have a passion for building meaningful digital experiences, and enjoy
-                leading multi-disciplinary teams to innovate and deliver.
-              </h2>
-              <StyledButtonGroup>
-                  <Button>How I Work</Button>
-                  <Button>What I Deliver</Button>
-              </StyledButtonGroup>
-              */}
-              <StyledText>Hello World</StyledText>
-              <h1>Hello World.</h1>
-              <h2>
-                I like to bridge gaps in product design. From experience to design
-                to development. Led by a passion for creating holistic processes for product design.
-                Please say hello anytime.
-              </h2>
-              <p>Currently @ Booz Allen Hamilton</p>
+        <Container hasGutters={false}>
+          <Row hasGutters={false}>
+            <Column xl={7} hasGutters={false}>
+              <StyledHeroLeft>
+                <StyledStripes>
+                  <StyledStripe order={1} />
+                  <StyledStripe order={2} />
+                  <StyledStripe order={3} />
+                  <StyledStripe order={4} />
+                  <StyledStripe order={5} />
+                  <StyledStripe order={6} />
+                </StyledStripes>
+                <StyledSubHeader>Hello World</StyledSubHeader>
+                <StyledHeader>I'm Unique.</StyledHeader>
+                <StyledLeadParagraph>
+                  I like to bridge gaps in product design. From experience to design
+                  to development. Led by a passion for creating holistic processes for product design.
+                  Please say hello anytime.
+                </StyledLeadParagraph>
+                <StyledParagraph>Currently @ Booz Allen Hamilton</StyledParagraph>
+              </StyledHeroLeft>
             </Column>
-            <Column xl={5}>
-              <StyledColorSection>
-                <StyledColorPanelHeader>
-                  <StyledColorSectionTitle>
-                    Choose a Theme
-                  </StyledColorSectionTitle>
-                </StyledColorPanelHeader>
-                <StyledColorPanelBody>
-                  <StyledColorLabelsAndPalette>
-                    <StyledColorLabels>
-
-                    </StyledColorLabels>
-                    <StyledColorPalette>
-                      {this.renderColorPalette()}
-                    </StyledColorPalette>
-                  </StyledColorLabelsAndPalette>
-                </StyledColorPanelBody>
-              </StyledColorSection>
+            <Column xl={5} hasGutters={false}>
+              <StyledCalloutSection>
+                <StyleCalloutBackground />
+                <StyledArticle>
+                  <StyledArticleImage>
+                    <svg viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+                      <g fill={this.props.primaryColor} fillRule="evenodd">
+                        <circle fillOpacity=".1" cx="72" cy="72" r="72"/>
+                        <circle fillOpacity=".2" cx="72" cy="72" r="58"/>
+                        <circle fillOpacity=".3" cx="72" cy="72" r="44"/>
+                        <circle fillOpacity=".4" cx="72" cy="72" r="30"/>
+                        <circle fillOpacity=".5" cx="72" cy="72" r="16"/>
+                      </g>
+                    </svg>
+                  </StyledArticleImage>
+                  <StyledArticleContent>
+                    <StyledArticleType>Process</StyledArticleType>
+                    <StyledArticleTitle>Working Across Disciplines to Output Coherent Products</StyledArticleTitle>
+                    <Link to="/about/">Learn More</Link>
+                  </StyledArticleContent>
+                </StyledArticle>
+                <StyledArticle>
+                  <StyledArticleContent>
+                    <StyledArticleType>Tech Stack</StyledArticleType>
+                    <StyledArticleTitle>Explore My Latest Favorite Tools and Technologies</StyledArticleTitle>
+                    <Link to="/about/">Learn More</Link>
+                  </StyledArticleContent>
+                  <StyledArticleImage>
+                    <svg viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+                      <g fill={this.props.primaryColor} fillRule="evenodd">
+                        <path fillOpacity=".05" d="M0 0h144v144H0z"/>
+                        <path fillOpacity=".1" d="M0 24h144v120H0z"/>
+                        <path fillOpacity=".15" d="M0 48h144v96H0z"/>
+                        <path fillOpacity=".2" d="M0 72h144v72H0z"/>
+                        <path fillOpacity=".25" d="M0 96h144v48H0z"/>
+                        <path fillOpacity=".3" d="M0 120h144v24H0z"/>
+                      </g>
+                    </svg>
+                  </StyledArticleImage>
+                </StyledArticle>
+              </StyledCalloutSection>
             </Column>
           </Row>
         </Container>
@@ -209,3 +276,6 @@ export default class Hero extends React.Component {
     )
   }
 }
+
+Hero.propTypes = propTypes;
+export default Hero;

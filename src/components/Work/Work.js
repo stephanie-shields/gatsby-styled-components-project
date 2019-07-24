@@ -1,16 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import { rem } from 'polished'
-import { Link } from 'gatsby'
-import Container from '../Grid/Container'
-import Row from '../Grid/Row'
-import Column from '../Grid/Column'
-import Project from '../Project/Project'
-import ProjectMediaImage01 from '../../images/project-01.png'
-import ProjectMediaImage02 from '../../images/project-02.png'
-import ProjectMediaImage03 from '../../images/project-03.png'
-import ProjectMediaImage04 from '../../images/project-04.png'
-import ProjectMediaImage05 from '../../images/project-05.png'
+import React from 'react';
+import styled from 'styled-components';
+import { rem } from 'polished';
+import { Link } from 'gatsby';
+import Container from '../Grid/Container';
+import Row from '../Grid/Row';
+import Column from '../Grid/Column';
+import Project from '../Project/Project';
+import ProjectMediaImage01 from '../../images/project-01.png';
+import ProjectMediaImage02 from '../../images/project-02.png';
+import ProjectMediaImage03 from '../../images/project-03.png';
+import ProjectMediaImage04 from '../../images/project-04.png';
+import ProjectMediaImage05 from '../../images/project-05.png';
 
 const StyledSectionWork = styled.section`
   background-color: #161D1E;
@@ -18,7 +18,6 @@ const StyledSectionWork = styled.section`
 `
 
 const StyledSectionWorkGroup = styled.div`
-  /* padding-left: ${rem('80px')}; */
   position: relative;
 
   ${Row} {
@@ -29,38 +28,6 @@ const StyledSectionWorkGroup = styled.div`
     padding-left: calc(${props => props.theme.gridGutterWidth} / 2);
   }
 `
-
-/*
-const StyledSectionLabel = styled.div`
-  width: ${rem('80px')};
-  position: relative;
-  background-color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-top: ${rem('1px')} solid #e6e6e6;
-
-  p {
-    display: inline-block;
-    transform: rotate(-90deg) translateX(-100%) translateY(-50%);
-    transform-origin: 0 0;
-    position: absolute;
-    left: 50%;
-    top: ${rem('32px')};
-    white-space: nowrap;
-    text-transform: uppercase;
-    font-size: ${rem('14px')};
-    letter-spacing: ${rem('1px')};
-  }
-`
-
-const StyledSectionLabelText = styled.span`
-  color: #0096d1;
-  margin-left: ${rem('6px')};
-  font-weight: 600;
-`
-*/
 
 const StyledLayoutColumn = styled(Column)`
   display: flex;
@@ -130,13 +97,6 @@ const StyledLeadText = styled.span`
 const Work = () => (
   <StyledSectionWork>
     <StyledSectionWorkGroup>
-      {/*
-      <StyledSectionLabel>
-        <p>
-          <StyledSectionLabelText>Featured</StyledSectionLabelText> Work
-        </p>
-      </StyledSectionLabel>
-      */}
       <Container hasMaxWidth hasGutters={false}>
         <Row hasGutters={false}>
           <StyledLayoutColumn xs={12} xl={4} hasGutters={false}>
@@ -190,13 +150,6 @@ const Work = () => (
       </Container>
     </StyledSectionWorkGroup>
     <StyledSectionWorkGroup>
-      {/*
-      <StyledSectionLabel>
-        <p>
-          <StyledSectionLabelText>All</StyledSectionLabelText> Work
-        </p>
-      </StyledSectionLabel>
-      */}
       <Container hasMaxWidth hasGutters={false}>
         <Row hasGutters={false}>
           <StyledLayoutColumn xs={12} lg={7} hasGutters={false}>
@@ -204,7 +157,6 @@ const Work = () => (
               projectImage={ProjectMediaImage02}
               projectMediaBackground="#EEF9FF"
               projectSummaryBackground="#227FCE"
-              // projectSummaryBackground="#4B56CC"
               projectIndex={2}
               projectLabel="UX Design - Front-End Dev"
               projectTitle="myEverify"
@@ -228,7 +180,6 @@ const Work = () => (
               projectImage={ProjectMediaImage03}
               projectMediaBackground="linear-gradient(to bottom, #EA384D, #D31027)"
               projectSummaryBackground="#E0193D"
-              // projectSummaryBackground="#4B56CC"
               projectIndex={3}
               projectLabel="Front-End Dev"
               projectTitle="Booz Allen M&C"
@@ -256,7 +207,6 @@ const Work = () => (
               projectImage={ProjectMediaImage04}
               projectMediaBackground="linear-gradient(to bottom, #8F94FB, #4E54C8)"
               projectSummaryBackground="#4C52C9"
-              // projectSummaryBackground="#4B56CC"
               projectIndex={4}
               projectLabel="Design Research - UX Design"
               projectTitle="NodeKin"
@@ -280,7 +230,6 @@ const Work = () => (
               projectImage={ProjectMediaImage05}
               projectMediaBackground="linear-gradient(to bottom, #F09819, #FF512F)"
               projectSummaryBackground="#ff6d00"
-              // projectSummaryBackground="#4B56CC"
               projectIndex={5}
               projectLabel="UX Design - Front-End Dev"
               projectTitle="Digital Solver Space"
@@ -329,4 +278,4 @@ const Work = () => (
   </StyledSectionWork>
 )
 
-export default Work
+export default Work;
