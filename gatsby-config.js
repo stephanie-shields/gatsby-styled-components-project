@@ -18,4 +18,5 @@ module.exports = {
       __key: "images",
     },
   ],
+  pathPrefix: "/gatsby-styled-components-project",
 };
