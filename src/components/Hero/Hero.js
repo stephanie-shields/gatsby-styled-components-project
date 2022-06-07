@@ -219,7 +219,7 @@ class Hero extends React.Component {
                   <StyledStripe order={6} />
                 </StyledStripes>
                 <StyledSubHeader>Hello World</StyledSubHeader>
-                <StyledHeader>I'm Unique.</StyledHeader>
+                <StyledHeader>I'm Stephanie</StyledHeader>
                 <StyledLeadParagraph>
                   I like to bridge gaps in product design. From experience to design
                   to development. Led by a passion for creating holistic processes for product design.
